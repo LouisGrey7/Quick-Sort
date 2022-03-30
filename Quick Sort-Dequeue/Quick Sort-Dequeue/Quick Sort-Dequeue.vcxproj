@@ -139,10 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CDeque.cpp" />
+    <ClCompile Include="CNode.cpp" />
     <ClCompile Include="CQuickSort.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CDeque.h" />
+    <ClInclude Include="CNode.h" />
     <ClInclude Include="CQuickSort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
