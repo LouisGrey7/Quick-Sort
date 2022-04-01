@@ -141,7 +141,8 @@ int main()
 			std::cout << "6. Peek Back" << std::endl;
 			std::cout << "7. Is Empty" << std::endl;
 			std::cout << "8. Display" << std::endl;
-			std::cout << "9. Back" << std::endl;
+			std::cout << "9. Size" << std::endl;
+			std::cout << "0. Back" << std::endl;
 
 			
 
@@ -187,15 +188,29 @@ int main()
 
 			case 5:
 				system("cls");
-				std::cout << "[" << deque.PeekFront() << "]";
-				std::cout << std::endl << std::endl;
+				if (deque.IsEmpty())
+				{
+					std::cout << "Deque is Empty" << std::endl;
+				}
+				else
+				{
+					std::cout << "[" << deque.PeekFront() << "]";
+					std::cout << std::endl << std::endl;
+				}
 				system("pause");
 				goto dequestart;
 
 			case 6:
 				system("cls");
-				std::cout << "[" << deque.PeekBack() << "]";
-				std::cout << std::endl << std::endl;
+				if (deque.IsEmpty())
+				{
+					std::cout << "Deque is Empty" << std::endl;
+				}
+				else
+				{
+					std::cout << "[" << deque.PeekBack() << "]";
+					std::cout << std::endl << std::endl;
+				}
 				system("pause");
 				goto dequestart;
 
@@ -204,6 +219,10 @@ int main()
 				if (deque.IsEmpty())
 				{
 					std::cout << "Deque is Empty" << std::endl;
+				}
+				else
+				{
+					deque.Display();
 				}
 				std::cout << std::endl << std::endl;
 				system("pause");
@@ -215,8 +234,15 @@ int main()
 				std::cout << std::endl << std::endl;
 				system("pause");
 				goto dequestart;
-				
+
 			case 9:
+				system("cls");
+				std::cout << "Deque has " << deque.Size() << " elements";
+				std::cout << std::endl << std::endl;
+				system("pause");
+				goto dequestart;
+				
+			case 0:
 				system("cls");
 				goto start;
 

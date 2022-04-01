@@ -20,6 +20,7 @@ public:
 	void DequeueBack();
 	int PeekFront();
 	int PeekBack();
+	int Size();
 	void Display();
 };
 

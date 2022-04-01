@@ -144,6 +144,11 @@ int CDeque::PeekBack()
 		return back->data;
 }
 
+int CDeque::Size()
+{
+	return size;
+}
+
 
 
 
