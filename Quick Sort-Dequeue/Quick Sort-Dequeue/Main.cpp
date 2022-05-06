@@ -17,12 +17,14 @@ int main()
 	int sizeofsortarray = 10;
 	int* sortarray = new int[sizeofsortarray];
 	int dequeinput = 0;
-	std::string sortelements;
+	std::vector<int> sortvec;
 
 	start:
 	system("cls");
+
+	//Main Menu
 	std::cout << "Quicksort and Deque Program \n\n\n" << std::endl;
-	std::cout << "Select Function: \n\n\n" << std::endl;
+	std::cout << "Select Function\nEnter a number:\n\n" << std::endl;
 
 	std::cout << "1. Quicksort \n \n";
 	std::cout << "2. Deque \n \n";
@@ -36,6 +38,7 @@ int main()
 		switch (userinput)
 		{
 		case 1:
+			//Quicksort Menu
 			system("cls");
 			std::cout << "Select an order: \n\n\n" << std::endl;
 			std::cout << "0. Ascending \n\n";
@@ -52,18 +55,37 @@ int main()
 				switch (userinput)
 				{
 				case 0:
+					// Quicksort Ascending Loop
 					system("cls");
 					std::cout << "Input number of elements too sort:" << std::endl;
-					std::cin >> sizeofsortarray;
-					system("cls");
+					while (!(std::cin >> sizeofsortarray))
+					{
+						std::cout << "input error" << std::endl;
+						std::cin.clear();
+						std::cin.ignore();
 
+					}
+					std::cin.ignore();
+					std::cin.clear();
+
+
+					std::cout << "Input elements divided by spaces" << std::endl;
 					for (int i = 0; i < sizeofsortarray; i++)
 					{
-						std::cout << "Input elements number " << i + 1 << ":" << std::endl;
-						std::cin >> sortarray[i]; std::cout << std::endl;
-						system("cls");
+						int num;
+						while (!(std::cin >> num))
+						{
+							std::cout << "input error" << std::endl;
+							std::cin.clear();
+							std::cin.ignore();
+
+						}
+							sortvec.push_back(num);
+							sortarray[i] = sortvec[i];
 					}
+					sortvec.clear();
 					system("cls");
+
 
 					std::cout << "Original Order" << std::endl;
 					for (int i = 0; i < sizeofsortarray; i++)
@@ -72,7 +94,9 @@ int main()
 					}
 					std::cout << std::endl << std::endl;
 
+
 					quicksorter.AscendingQuickSort(sortarray, 0, sizeofsortarray - 1);
+
 
 					std::cout << "New Order" << std::endl;
 					for (int i = 0; i < sizeofsortarray; i++)
@@ -80,21 +104,42 @@ int main()
 						std::cout << sortarray[i] << " ";
 					}
 					std::cout << std::endl << std::endl;
+					std::cin.clear();
+					std::cin.ignore();
 					system("pause");
 					goto start;
 
 				case 1:
+					// Quicksort Descending Loop
 					system("cls");
 					std::cout << "Input number of elements too sort:" << std::endl;
-					std::cin >> sizeofsortarray;
-					system("cls");
+					while (!(std::cin >> sizeofsortarray))
+					{
+						std::cout << "input error" << std::endl;
+						std::cin.clear();
+						std::cin.ignore(100, '\n');
+
+					}
+					std::cin.ignore();
+					std::cin.clear();
+					std::cout << "Input elements divided by spaces" << std::endl;
 					for (int i = 0; i < sizeofsortarray; i++)
 					{
-						std::cout << "Input elements number " << i + 1 << ":" << std::endl;
-						std::cin >> sortarray[i]; std::cout << std::endl;
-						system("cls");
+						int num;
+						while (!(std::cin >> num))
+						{
+							std::cout << "input error" << std::endl;
+							std::cin.clear();
+							std::cin.ignore(100, '\n');
+
+						}
+						sortvec.push_back(num);
+						sortarray[i] = sortvec[i];
 					}
+					sortvec.clear();
 					system("cls");
+
+
 					std::cout << "Original Order" << std::endl;
 					for (int i = 0; i < sizeofsortarray; i++)
 					{
@@ -102,7 +147,9 @@ int main()
 					}
 					std::cout << std::endl << std::endl;
 
+
 					quicksorter.DecendingQuickSort(sortarray, 0, sizeofsortarray - 1);
+
 
 					std::cout << "New Order" << std::endl;
 					for (int i = 0; i < sizeofsortarray; i++)
@@ -110,8 +157,13 @@ int main()
 						std::cout << sortarray[i] << " ";
 					}
 					std::cout << std::endl << std::endl;
+					std::cin.clear();
+					std::cin.ignore(100, '\n');
+					system("pause");
+					goto start;
 
 				case 2:
+					//Back
 					system("cls");
 					goto start;
 				}
@@ -120,6 +172,7 @@ int main()
 			}
 			else
 			{
+			// input error
 				system("cls");
 				std::cout << "input error" << std::endl;
 				userinput = 0;
@@ -131,6 +184,8 @@ int main()
 
 			dequestart:
 			system("cls");
+
+			//Deque Menu
 			std::cout << "Deque \n" << std::endl;
 			std::cout << "Enter a number \n\n" << std::endl;
 			std::cout << "1. Enqueue Front" << std::endl;
@@ -144,16 +199,21 @@ int main()
 			std::cout << "9. Size" << std::endl;
 			std::cout << "0. Back" << std::endl;
 
-			
-
 			userinput = _getch() - 48;
 
 			switch (userinput)
 			{
 			case 1:
+				// Enqueue Front
 				system("cls");
 				std::cout << "Enter data:";
-				std::cin >> dequeinput;
+				while (!(std::cin >> dequeinput))
+				{
+					std::cout << "input error" << std::endl;
+					std::cin.clear();
+					std::cin.ignore(100, '\n');
+
+				}
 				deque.EnqueueFront(dequeinput);
 				deque.Display();
 				std::cout << std::endl << std::endl;
@@ -161,9 +221,16 @@ int main()
 				goto dequestart;
 
 			case 2:
+				// Enqueue Back
 				system("cls");
 				std::cout << "Enter data:";
-				std::cin >> dequeinput;
+				while (!(std::cin >> dequeinput))
+				{
+					std::cout << "input error" << std::endl;
+					std::cin.clear();
+					std::cin.ignore(100, '\n');
+
+				}
 				deque.EnqueueBack(dequeinput);
 				deque.Display();
 				std::cout << std::endl << std::endl;
@@ -171,6 +238,7 @@ int main()
 				goto dequestart;
 
 			case 3:
+				// Dequeue Front
 				system("cls");
 				deque.DequeueFront();
 				deque.Display();
@@ -179,6 +247,7 @@ int main()
 				goto dequestart;
 
 			case 4:
+				// Dequeue Back
 				system("cls");
 				deque.DequeueBack();
 				deque.Display();
@@ -187,6 +256,7 @@ int main()
 				goto dequestart;
 
 			case 5:
+				// Peek Front
 				system("cls");
 				if (deque.IsEmpty())
 				{
@@ -201,6 +271,7 @@ int main()
 				goto dequestart;
 
 			case 6:
+				// Peek Back
 				system("cls");
 				if (deque.IsEmpty())
 				{
@@ -215,6 +286,7 @@ int main()
 				goto dequestart;
 
 			case 7:
+				// Is Empty
 				system("cls");
 				if (deque.IsEmpty())
 				{
@@ -229,6 +301,7 @@ int main()
 				goto dequestart;
 
 			case 8:
+				// Display
 				system("cls");
 				deque.Display();
 				std::cout << std::endl << std::endl;
@@ -236,6 +309,7 @@ int main()
 				goto dequestart;
 
 			case 9:
+				// Size
 				system("cls");
 				std::cout << "Deque has " << deque.Size() << " elements";
 				std::cout << std::endl << std::endl;
@@ -243,6 +317,7 @@ int main()
 				goto dequestart;
 				
 			case 0:
+				//Back
 				system("cls");
 				goto start;
 
@@ -255,6 +330,7 @@ int main()
 			goto dequestart;
 
 		case 3:
+			//Exit
 			system("cls");
 			system("exit");
 			
@@ -262,6 +338,7 @@ int main()
 	}
 	else
 	{
+	//input error
 		system("cls");
 		std::cout << "input error" << std::endl;
 		userinput = 0;

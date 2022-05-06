@@ -24,6 +24,7 @@ int CQuickSort::AscendingPartition(int* _array, int _left, int _pivot)
 
 		}
 	}
+
 	Swap(&_array[low + 1], &_array[_pivot]);
 
 	return low + 1;
@@ -46,6 +47,7 @@ int CQuickSort::DescendingPartition(int* _array, int _left, int _pivot)
 
 		}
 	}
+
 	Swap(&_array[low + 1], &_array[_pivot]);
 
 	return low + 1;

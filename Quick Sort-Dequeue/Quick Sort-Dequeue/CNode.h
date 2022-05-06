@@ -6,7 +6,6 @@
 
 class CNode
 {
-
 public:
 
 	int data;

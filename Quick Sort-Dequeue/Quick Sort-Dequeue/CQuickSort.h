@@ -6,6 +6,7 @@ private:
 
 public:
 
+	//Functions
 	void Swap(int* _a, int* _b);
 	int AscendingPartition(int* _array, int _left, int _pivot);
 	int DescendingPartition(int* _array, int _left, int _pivot);

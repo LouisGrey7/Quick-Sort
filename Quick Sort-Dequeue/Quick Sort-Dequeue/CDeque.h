@@ -11,8 +11,10 @@ private:
 	int size;
 
 public:
-
+	// Constructor
 	CDeque();
+
+	//Functions
 	bool IsEmpty();
 	void EnqueueFront(int _a);
 	void EnqueueBack(int _a);
